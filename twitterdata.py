@@ -9,7 +9,7 @@ Please explain the comments to students as you code.
 import json
 from textblob import TextBlob
 import matplotlib.pyplot as plt
-from wordcloud import WordCloud
+from wordcloud import WordCloud, STOPWORDS
 #
 # def numOfLetter(tw, letter):
 # 	count = 0
@@ -118,14 +118,25 @@ for i in range(len(tweetData)):
 	dictList.append(temp_dict)
 # print(dictList)
 
-tString = ""
-for tweet in tweetList:
-	tString += tweet + ' '
-# print(tString)
-wc = WordCloud(max_words = 1000).generate_from_text(tString)
-plt.figure(figsize = (8, 8), facecolor = None, dpi = 1500)
-plt.imshow(wc, interpolation = 'bilinear')
-plt.tight_layout()
-plt.axis('off')
+# tString = ""
+# for tweet in tweetList:
+# 	tString += tweet + ' '
+# # print(tString)
+# stopwords = set(STOPWORDS)
+# wc = WordCloud(height = 10000, width = 10000, max_words = 1000, stopwords = stopwords)generate(tString)
+# plt.figure(figsize = (10, 10), facecolor = None)
+# plt.imshow(wc, interpolation = 'bilinear')
+# plt.tight_layout()
+# plt.axis('off')
+# # plt.show()
+# plt.savefig('wodcloud.png')
+
+n, bins, patches = plt.hist(pList, 50, normed=1, facecolor='g', alpha=0.75)
+
+plt.xlabel('Polarity')
+plt.ylabel('Probability')
+plt.title('Histogram of Sentiment')
+plt.text(60, .025, r'$\mu=100,\ \sigma=15$')
+plt.axis([40, 160, 0, 0.03])
+plt.grid(True)
 plt.show()
-plt.savefig('wodcloud.png')
