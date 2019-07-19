@@ -10,14 +10,7 @@ import json
 from textblob import TextBlob
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
-#
-# def numOfLetter(tw, letter):
-# 	count = 0
-# 	for l in tw:
-# 		if l == letter or l.lower() == letter:
-# 			#print(l)
-# 			count += 1
-# 	return count
+
 
 # Next we want to open the JSON file. We tag this file as
 # "r" read only because we are only going to look at the data.
@@ -80,6 +73,15 @@ for tweet in tweetData:
  print(set(a))
 '''
 '''
+def numOfLetter(tw, letter):
+	count = 0
+	for l in tw:
+		if l == letter or l.lower() == letter:
+			#print(l)
+			count += 1
+	return count
+'''
+'''
 eCount = 0
 jCount = 0
 for tweet in tweetData:
@@ -98,9 +100,8 @@ for letter in alpha:
 		if 'text' in tweet:
 			tempCount += numOfLetter(tweet['text'], letter)
 	letterCount.append([letter, tempCount])
- print(letterCount)
+print(letterCount)
 '''
-
 tweetList = []
 for tweet in tweetData:
 	if 'text' in tweet:
@@ -129,7 +130,7 @@ for tweet in tweetList:
 # # print(tString)
 '''
 stopwords = set(STOPWORDS)
-wc = WordCloud(height = 10000, width = 10000, max_words = 1000, stopwords = stopwords)generate(tString)
+wc = WordCloud(height = 10000, width = 10000, max_words = 1000, stopwords = stopwords).generate(tString)
 plt.figure(figsize = (10, 10), facecolor = None)
 plt.imshow(wc, interpolation = 'bilinear')
 plt.tight_layout()
@@ -137,10 +138,62 @@ plt.axis('off')
 # plt.show()
 plt.savefig('wodcloud.png')
 '''
-
+'''
 n, bins, patches = plt.hist(pList)
 plt.axis([-1, 1, 0.0, 55])
 plt.title("Histogram of Sentiment")
 plt.xlabel("Polarity")
 plt.ylabel("Frequency")
+plt.show()
+'''
+'''
+def letter_count(string, letter):
+	count = 0
+	for i in string:
+		if i.lower() == letter:
+			count += 1
+	return count
+
+alefbet = sorted('qwertyuiopasdfghjklzxcvbnm')
+occurences = []
+for i in alefbet:
+	occurences.append(letter_count(tString, i))
+	print(f"Letter: {i} Occurences: {letter_count(tString, i)}")
+# print(occurences)
+'''
+'''
+n, bins, patches = plt.hist(occurences)
+# print(min(occurences))
+# print(max(occurences))
+plt.axis([0.0, 1150, 0.0, 8])
+plt.title("Histogram of Letter Occurences")
+plt.xlabel("Occurences")
+plt.ylabel("Number of Letters")
+plt.savefig("letterhist.png")
+plt.show()
+'''
+
+def word_count(tweet_string, string1):
+	counter = 0
+	string1 = string1.lower()
+	wordList = tweet_string.split(' ')
+	for i in wordList:
+		if i == string1:
+			counter += 1
+	return counter
+
+wcl = []
+for word in tweetList:
+	wordo = word_count(word, 'the')
+	wcl.append(wordo)
+print(wcl)
+
+n, bins, patches = plt.hist(wcl)
+# print(min(wcl))
+# print(max(wcl))
+plt.axis([-1, 4, 0.0, 80])
+plt.title("Histogram of Word Occurences")
+plt.xlabel("Occurences")
+plt.ylabel("Number of Words")
+plt.savefig("wordhist.png")
 plt.show()
