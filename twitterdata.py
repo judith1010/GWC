@@ -58,43 +58,48 @@ tweetFile.close()
 # Encourage students to think about how there are
 # often multiple solutions for each problem, and
 # how each solution might have strenghts and drawbacks.
-# sum = 0
-# num = 0
-# for tweet in tweetData:
-# 	# tweet = tweetData[i]
-# 	if "favorite_count" not in tweet:
-# 		 print('none')
-# 	else:
-# 		 print(tweet['favorite_count'])
-# 		sum += tweet["favorite_count"]
-# 		num += 1
-# avg = sum/num
-#  print(avg)
-#
-# a = []
-# for tweet in tweetData:
-# 	a.append(tweet['lang'])
-#  # print(a)
-#  print(set(a))
-#
-# eCount = 0
-# jCount = 0
-# for tweet in tweetData:
-# 	if 'text' in tweet:
-# 		eCount += numOfLetter(tweet['text'], 'e')
-# 		jCount += numOfLetter(tweet['text'], 'j')
-#  print(f"There are {eCount} 'e's in this data")
-#  print(f"There are {jCount} 'j's in this data")
-#
-# letterCount = ["Number of letters in data:"]
-# alpha = sorted('qwertyuiopasdfghjklzxcvbnm')
-# for letter in alpha:
-# 	tempCount = 0
-# 	for tweet in tweetData:
-# 		if 'text' in tweet:
-# 			tempCount += numOfLetter(tweet['text'], letter)
-# 	letterCount.append([letter, tempCount])
-#  print(letterCount)
+'''
+sum = 0
+num = 0
+for tweet in tweetData:
+	# tweet = tweetData[i]
+	if "favorite_count" not in tweet:
+		 print('none')
+	else:
+		 print(tweet['favorite_count'])
+		sum += tweet["favorite_count"]
+		num += 1
+avg = sum/num
+ print(avg)
+'''
+'''
+a = []
+for tweet in tweetData:
+	a.append(tweet['lang'])
+ # print(a)
+ print(set(a))
+'''
+'''
+eCount = 0
+jCount = 0
+for tweet in tweetData:
+	if 'text' in tweet:
+		eCount += numOfLetter(tweet['text'], 'e')
+		jCount += numOfLetter(tweet['text'], 'j')
+ print(f"There are {eCount} 'e's in this data")
+ print(f"There are {jCount} 'j's in this data")
+'''
+'''
+letterCount = ["Number of letters in data:"]
+alpha = sorted('qwertyuiopasdfghjklzxcvbnm')
+for letter in alpha:
+	tempCount = 0
+	for tweet in tweetData:
+		if 'text' in tweet:
+			tempCount += numOfLetter(tweet['text'], letter)
+	letterCount.append([letter, tempCount])
+ print(letterCount)
+'''
 
 tweetList = []
 for tweet in tweetData:
@@ -118,25 +123,24 @@ for i in range(len(tweetData)):
 	dictList.append(temp_dict)
 # print(dictList)
 
-# tString = ""
-# for tweet in tweetList:
-# 	tString += tweet + ' '
+tString = ""
+for tweet in tweetList:
+	tString += tweet + ' '
 # # print(tString)
-# stopwords = set(STOPWORDS)
-# wc = WordCloud(height = 10000, width = 10000, max_words = 1000, stopwords = stopwords)generate(tString)
-# plt.figure(figsize = (10, 10), facecolor = None)
-# plt.imshow(wc, interpolation = 'bilinear')
-# plt.tight_layout()
-# plt.axis('off')
-# # plt.show()
-# plt.savefig('wodcloud.png')
+'''
+stopwords = set(STOPWORDS)
+wc = WordCloud(height = 10000, width = 10000, max_words = 1000, stopwords = stopwords)generate(tString)
+plt.figure(figsize = (10, 10), facecolor = None)
+plt.imshow(wc, interpolation = 'bilinear')
+plt.tight_layout()
+plt.axis('off')
+# plt.show()
+plt.savefig('wodcloud.png')
+'''
 
-n, bins, patches = plt.hist(pList, 50, normed=1, facecolor='g', alpha=0.75)
-
-plt.xlabel('Polarity')
-plt.ylabel('Probability')
-plt.title('Histogram of Sentiment')
-plt.text(60, .025, r'$\mu=100,\ \sigma=15$')
-plt.axis([40, 160, 0, 0.03])
-plt.grid(True)
+n, bins, patches = plt.hist(pList)
+plt.axis([-1, 1, 0.0, 55])
+plt.title("Histogram of Sentiment")
+plt.xlabel("Polarity")
+plt.ylabel("Frequency")
 plt.show()
