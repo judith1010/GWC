@@ -1,0 +1,17 @@
+body{
+  background-color: #F416AD
+}
+
+h3 {
+  color: #575357;
+  font-size: 30px;
+  font-family: 'Shadows Into Light', cursive;
+}
+ h1{
+   color: grey;
+   font-family: 'Lobster', cursive;
+   font-size: 50px
+ }
+#damage{
+  font-size: 25px
+}
