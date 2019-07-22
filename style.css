@@ -12,6 +12,7 @@ h3 {
    font-family: 'Lobster', cursive;
    font-size: 50px
  }
-#damage{
-  font-size: 25px
+.damage{
+  font-size: 25px;
+  font-family: 'Dancing Script', cursive;
 }
