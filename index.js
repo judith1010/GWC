@@ -94,6 +94,7 @@ function (){
     myImg.style.width = (currWidth + 5) + "px";
     myImg.style.height = (currHeight + 5) + "px";
   }
+  console.log(myImg.clientWidth)
 })
 
 document.getElementById('zo').addEventListener("click",
@@ -108,4 +109,5 @@ function (){
     myImg.style.width = (currWidth - 5) + "px";
     myImg.style.height = (currHeight - 5) + "px";
   }
+  console.log(myImg.clientWidth)
 })
