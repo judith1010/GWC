@@ -15,3 +15,15 @@ function adjChange(){
     p = 0;
   }
 }
+
+var fonts = ["'Hanalei', cursive", "'Oswald', sans-serif", "'Butcherman', cursive"]
+var f = document.getElementById('rand font')
+var pos = 0
+function fontChange(){
+  // f.setAttribute("style", `font-family: ${fonts[pos]}`);
+  f.style.fontFamily = fonts[pos]
+  pos ++;
+  if (pos >= fonts.length){
+    pos = 0;
+  }
+}
