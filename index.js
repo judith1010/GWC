@@ -50,9 +50,27 @@ function adjChange(){
 }
 
 function zoomin(){
-       var myImg = document.getElementById('pic')
+       var myImg = document.getElementById('pic');
        var currWidth = myImg.clientWidth;
        var currHeight = myImg.clientHeight;
-       myImg.style.width = (currWidth + 5) + "px";
-       myImg.style.height = (currHeight + 5) + "px";
+       if (currWidth == 1000){
+         alert("You have reached maximum zoomin")
        }
+       else{
+         myImg.style.width = (currWidth + 5) + "px";
+         myImg.style.height = (currHeight + 5) + "px";
+       }
+       }
+
+function zoomout(){
+  var myImg = document.getElementById('pic');
+  var currWidth = myImg.clientWidth;
+  var currHeight = myImg.clientHeight;
+  if (currWidth == 100){
+    alert("You have reached maximum zoomout")
+  }
+  else{
+    myImg.style.width = (currWidth - 5) + "px";
+    myImg.style.height = (currHeight - 5) + "px";
+  }
+}
